@@ -1,0 +1,250 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+#website-nav{
+    padding: 20px;
+    background-color: #007bff;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nav-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 323px;
+    margin-left: 50px;
+    color: white;
+    font-weight: bold;
+}
+#nav-title span{
+  font-weight: 500;
+}
+
+#company{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#company-name-container{
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+#production_line_name{
+    font-size: 0.8rem;
+}
+
+#site-title{
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+}
+
+#line-nav{
+    height: 40px;
+    border: 1px solid white;
+}
+
+#fullscreen-button {
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#fullscreen-icon {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+}
+
+.corner::before,
+.corner::after {
+    content: '';
+    position: absolute;
+    background-color: #007bff;
+}
+
+.corner::before {
+    width: 8px;
+    height: 2px;
+}
+
+.corner::after {
+    width: 2px;
+    height: 8px;
+}
+
+.top-left { top: 0; left: 0; transform: rotate(0deg); }
+.top-right { top: 0; right: 0; transform: rotate(90deg); }
+.bottom-left { bottom: 0; left: 0; transform: rotate(270deg); }
+.bottom-right { bottom: 0; right: 0; transform: rotate(180deg); }
+
+.fullscreen .top-left { transform: rotate(-180deg); }
+.fullscreen .top-right { transform: rotate(-90deg); }
+.fullscreen .bottom-left { transform: rotate(-270deg); }
+.fullscreen .bottom-right { transform: rotate(0deg); }
+
+
+#nav-buttons{
+    margin: 0px 50px 0px 0px;
+    height: 60px;
+    display: flex;
+}
+
+.nav-btns{
+    height: 60px;
+    padding: 9px;
+    font-size: 0.7 rem;
+    font-weight: 600;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    box-shadow: -5px 0 10px rgba(43, 43, 43, 0.1),  /* left side */
+                5px 0 10px rgba(43, 43, 43, 0.1);  /* right side */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.nav-btns:hover {
+    background-color: #e0eafc;
+    color: #007bff;
+}
+
+#swp-container{
+  display: flex;
+  background-color: #ddd;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - 60px);
+  overflow: auto;
+}
+
+#swp-view-box {
+    color: #333333;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Optional: hover effect for subtle interactivity */
+#swp-view-box:hover {
+    border-color: #999999;
+}
+
+
+@media screen and (max-width: 900px) {
+
+  #website-nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    height: 110px;
+  }
+
+  #bottom-contents{
+    height: auto;
+  }
+
+  #nav-title {
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    gap: 5px;
+  }
+
+  #company{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    border-bottom: 1px solid white;
+  }
+
+  #company-name-container {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
+
+  #production_line_name {
+    font-size: 0.6rem;
+  }
+
+  #site-title {
+    font-size: 0.7rem;
+  }
+
+  #line-nav {
+    display: none; /* hide divider line to save space */
+  }
+
+  #nav-buttons {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #007bff;
+    animation: slideDown 0.3s ease;
+  }
+
+  /* Menu button (hamburger icon) */
+  #menu-toggle {
+    display: block;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+  }
+
+  /* When menu is active (via JS toggle) */
+  #nav-buttons.active {
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    display: flex;
+    margin: 0px;
+    z-index: 2;
+  } 
+  
+  #swp-container{
+    height: calc(100vh - 110px);
+    padding-bottom: 20px;
+  }
+
+  /* Add smooth slide animation */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media screen and (min-width: 901px) {
+  #menu-toggle {
+    display: none;
+  }
+}
