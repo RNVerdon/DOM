@@ -23,7 +23,7 @@
 
             <div id="site-title">
                 <div>
-                    DOM - PRODUCTION OUTPUT AND DOWNTIME MONITORING
+                    PRODUCTION OUTPUT AND DOWNTIME MONITORING
                 </div>
                 <div id="production_line_name">
                     Loading...
