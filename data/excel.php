@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 /* DB */
-$conn = new mysqli("localhost", "root", "123", "monitoring");
+$conn = new mysqli("localhost", "root", "", "monitoring");
 if ($conn->connect_error) {
     die("DB connection failed");
 }

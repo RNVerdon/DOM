@@ -2479,6 +2479,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return `${formatHour(startHour24)} - ${formatHour(endHour24)}`;
     }
 
+    function escapeHtml(str) {
+    return str
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
     // On select change
     select.addEventListener("change", () => {
         const id = select.value;
@@ -2498,10 +2507,22 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(res => res.json())
             .then(response => {
                 if (!response.success) {
-                    preview.innerHTML = `<p class="placeholder-text">Failed to load data.</p>`;
-                    return;
-                }
+                const reason =
+                    response?.message ||
+                    response?.error ||
+                    (typeof response === "string" ? response : null) ||
+                    "Unknown error";
 
+                const details =
+                    response?.details ? `<pre class="error-details">${escapeHtml(String(response.details))}</pre>` : "";
+
+                preview.innerHTML = `
+                    <p class="placeholder-text">Failed to load data. Reason: ${escapeHtml(String(reason))} </p>
+                    
+                    ${details}
+                `;
+                return;
+                }
                 const d = response.data; // all saved_data columns
 
                 // Build HTML dynamically

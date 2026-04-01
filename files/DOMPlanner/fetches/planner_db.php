@@ -749,7 +749,7 @@ if(isset($_GET['action']) && $_GET['action'] === 'get_saved_data' && isset($_GET
     header('Content-Type: application/json');
     $id = (int)$_GET['id'];
 
-    $conn = new mysqli("localhost", "root", "123", "monitoring");
+    $conn = new mysqli("localhost", "root", "", "monitoring");
     if ($conn->connect_error) {
         echo json_encode(["success" => false, "message" => "DB connection failed"]);
         exit;

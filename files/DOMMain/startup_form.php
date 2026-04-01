@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/startup.css">
-    <link rel="icon" type="image/ico" href="../../media/icons/nichivi-logo.ico">
     <title>DOM | Start-Up Menu</title>
 </head>
 <body>
@@ -16,7 +15,6 @@
                     <img width="35" src="../../media/icons/nichivi_logo_white.png" alt="logo">
                 </div>
                 <div id="company-title">
-                    NICHIVI PHILIPPINES CORPORATION
                 </div>
             </div>
             <div id="title">
